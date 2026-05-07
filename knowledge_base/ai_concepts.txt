@@ -1,0 +1,41 @@
+AI and Generative AI Concepts
+
+Large Language Models (LLMs)
+
+Large Language Models are deep neural networks trained on massive text corpora using transformer architectures. They learn to predict the next token in a sequence, which enables them to generate coherent text, answer questions, summarize content, and write code. Popular examples include GPT-4, Claude, Gemini, and LLaMA. LLMs are characterized by their parameter count (ranging from billions to trillions) and their emergent abilities that arise at scale.
+
+Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation (RAG) is a technique that combines the generative capabilities of LLMs with a retrieval system to ground responses in factual, up-to-date information. A RAG pipeline has two main phases: retrieval and generation. In the retrieval phase, user queries are converted to embeddings or sparse vectors and used to search a vector database for relevant document chunks. The top-k results are then passed as context to the LLM in the generation phase. RAG solves the hallucination problem by giving the model actual source material to reference. It is widely used for enterprise document Q&A, customer support bots, and knowledge management systems.
+
+Prompt Engineering
+
+Prompt engineering is the practice of designing input prompts to guide LLM behavior toward desired outputs. Key techniques include zero-shot prompting (asking the model directly), few-shot prompting (providing examples), chain-of-thought prompting (asking the model to reason step by step), role prompting (assigning a persona), and structured prompting (using templates with delimiters). Effective prompt engineering significantly improves output quality, reduces hallucinations, and controls output format.
+
+Prompt Chaining
+
+Prompt chaining involves breaking a complex task into a sequence of simpler subtasks, where the output of one prompt becomes the input of the next. This mirrors how humans decompose complex problems and allows LLMs to handle tasks that exceed their single-context reasoning abilities. Examples include: extract key facts → verify facts → write summary → format output.
+
+AI Agents and Agentic AI
+
+AI agents are LLM-based systems that can perceive their environment, reason about goals, take actions through tools, and iterate until a task is completed. The ReAct pattern (Reason + Act) is a popular framework where the agent alternates between generating a thought and executing an action, then observing the result. Key components of an agent are: the LLM backbone (for reasoning), a set of tools (functions the agent can call), memory (to track conversation and state), and a planning mechanism (to decompose goals into steps).
+
+Embeddings and Vector Databases
+
+Embeddings are dense numerical representations of text, images, or other data. Similar items have embeddings that are close together in vector space. In NLP, embedding models convert sentences into vectors of 768–1536 dimensions. Vector databases (like ChromaDB, Pinecone, Qdrant, Weaviate) store these vectors and support fast approximate nearest-neighbor search. They are the backbone of RAG systems and semantic search applications.
+
+Hallucination in LLMs
+
+Hallucination occurs when an LLM generates confident but factually incorrect information. It is a fundamental challenge arising from the model's training objective (next-token prediction) rather than from factual lookup. Mitigation strategies include RAG (grounding in retrieved documents), chain-of-thought reasoning, temperature reduction, constitutional AI, and iterative self-critique prompting.
+
+Context Window and Context Management
+
+The context window is the maximum number of tokens an LLM can process at once, including both the input prompt and the output. Larger context windows (e.g., 128K or 1M tokens) allow processing of longer documents but increase compute cost. Context management strategies include chunking, summarization, sliding window approaches, and selective retrieval to fit relevant information within the context limit.
+
+Few-Shot and Zero-Shot Learning
+
+Zero-shot learning asks a model to perform a task it has never explicitly been trained on, relying solely on its pretrained knowledge. Few-shot learning provides a small number of examples (shots) within the prompt to guide the model's behavior. Both techniques leverage the in-context learning ability of LLMs, where patterns in the prompt shape the output distribution without weight updates.
+
+Structured Prompting and Output Formatting
+
+Structured prompting uses templates, delimiters, and format instructions to get LLMs to produce outputs in specific formats such as JSON, XML, markdown tables, or code. This is critical for integrating LLM outputs into downstream systems. Techniques include asking for JSON output, using Pydantic schemas, and providing explicit output templates in the prompt.
